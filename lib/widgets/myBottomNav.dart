@@ -1,8 +1,8 @@
-import 'package:cosine/pages/show_farms.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gotham_gurus/pages/home_page.dart';
 
-final List<Widget>list=[ShowFarms(),ShowFarms(),ShowFarms()];
+final List<Widget>list=[];
 
 BottomNavigationBar MyBottomNav(BuildContext context){
   return BottomNavigationBar(items: [
@@ -15,7 +15,7 @@ BottomNavigationBar MyBottomNav(BuildContext context){
     BottomNavigationBarItem(icon: Icon(Icons.add),label: "three"),
 
   ],onTap: (index){
-    Navigator.push(context, MaterialPageRoute(builder: (_)=>list[index]));
+    Navigator.push(context, MaterialPageRoute(builder: (_)=>HomePage()));
   },
   );
 }

@@ -1,7 +1,12 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:gotham_gurus/pages/home_page.dart';
+import 'package:gotham_gurus/pages/login_page.dart';
 import 'package:gotham_gurus/pages/splash_page.dart';
+import 'package:gotham_gurus/pages/verification_page.dart';
+import 'package:gotham_gurus/services/auth/auth_service.dart';
+import 'package:gotham_gurus/widgets/loading.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

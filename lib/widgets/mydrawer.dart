@@ -1,6 +1,6 @@
-import 'package:cosine/pages/show_details.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gotham_gurus/pages/home_page.dart';
 import '../constants/routes.dart';
 import '../dialogs/show_logout_dialog.dart';
 import '../services/auth/auth_service.dart';
@@ -45,7 +45,7 @@ Drawer MyDrawer(BuildContext context){
               tileColor: Colors.deepPurple.shade100,
               title: Text("My details"),
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (_)=>ShowDetails()));
+                Navigator.push(context, MaterialPageRoute(builder: (_)=>HomePage()));
               },
             ),
           ),

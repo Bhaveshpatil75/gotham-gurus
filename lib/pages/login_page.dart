@@ -1,6 +1,15 @@
 
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gotham_gurus/pages/home_page.dart';
+
+import '../constants/routes.dart';
+import '../dialogs/show_dialog.dart';
+import '../dialogs/show_error_dialog.dart';
+import '../services/auth/auth_exceptionss.dart';
+import '../services/auth/auth_service.dart';
+import '../widgets/loading.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -85,7 +94,7 @@ class _LoginPage extends State<LoginPage> {
                             password: ps.text
                         );
                         if (AuthService.firebase().currentUser!.isEmailVerified) {
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>DoorPage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>HomePage()));
                         }
                         else{
                           await showErrorDialog(context, "Verify your Email first");
@@ -121,21 +130,7 @@ class _LoginPage extends State<LoginPage> {
                 ElevatedButton(onPressed: (){
                   Navigator.pushNamedAndRemoveUntil(context, registerRoute, (route)=>false);
                 },  child: Text("Not registered yet? Register Now!!")),
-                ElevatedButton(onPressed: ()async{
-                  const List<String> scopes = <String>[
-                    'email',
-                    'https://www.googleapis.com/auth/contacts.readonly',
-                  ];
 
-                  GoogleSignIn _googleSignIn = GoogleSignIn(
-                    scopes: scopes,
-                  );
-                    try {
-                      await _googleSignIn.signIn();
-                    } catch (error) {
-                      print(error);
-                  }
-                }, child: Text("Google sign in"))
               ],
             ),
           )
